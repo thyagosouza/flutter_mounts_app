@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mounts_world/models/category_model.dart';
 import 'package:flutter_mounts_world/models/mount_model.dart';
 import 'package:flutter_mounts_world/widgets/app_header_widget.dart';
 
+import '../widgets/app_mount_listview_widget.dart';
 import '../utils/app_colors.dart';
 import '../widgets/app_search_widget.dart';
 
@@ -46,61 +48,77 @@ class MountsAppPage extends StatelessWidget {
           AppHeaderWidget(),
           AppSearchWidget(),
           Expanded(
-            child: AppMountListView(),
+            child: AppMountListViewWidget(),
           ),
+          AppCategoryListWidget()
         ],
       ),
     );
   }
 }
 
-class AppMountListView extends StatelessWidget {
+class AppCategoryListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      return Container(
-        height: 150,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: mountItems.length,
-          itemBuilder: ((context, index) {
-            MountModel currentMount = mountItems[index];
-            return Container(
-              alignment: Alignment.bottomLeft,
+    return Container(
+      child: Column(
+        children: [
+          Container(
               padding: EdgeInsets.all(20),
-              margin: EdgeInsets.all(10),
-              width: 150,
-              decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: NetworkImage(currentMount.path),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    currentMount.name,
+                    'Category',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                   Text(
-                    currentMount.location,
+                    'See More',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.mainColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
                     ),
                   ),
                 ],
-              ),
-            );
-          }),
-        ),
-      );
-    });
+              )),
+          Container(
+            height: 100,
+            margin: EdgeInsets.only(left: 10),
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: categories.length,
+              itemBuilder: (context, index) {
+                CategoryModel currentCategory = categories[index];
+                return Container(
+                  width: 100,
+                  margin: EdgeInsets.only(top: 10, right: 10),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.grey.withOpacity(0.2), width: 2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(currentCategory.icon, color: AppColors.mainColor),
+                      Text(
+                        currentCategory.category,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

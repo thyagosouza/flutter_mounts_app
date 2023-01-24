@@ -27,7 +27,7 @@ final List<MountModel> mountItems = [
       location: 'Central Java'),
   MountModel(
       path:
-          'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/69/b7/01/mauna-loa-helicopters.jpg',
+          'https://img.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RXQ2YIO3CYYNKBOARHUJPVPILU.jpg&w=1800&high_res=true',
       name: 'Mauna Loa',
       description:
           'Mauna Loa is one of five volcanoes that form the Island of Hawaii in the U.S. state of Hawai in the Pacific Ocean. The largest subaerial volcano in both mass and volume, Mauna Loa has historically been considered the largest volcano on Earth, dwarfed only by Tamu Massif.',
