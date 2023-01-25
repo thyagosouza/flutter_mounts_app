@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mounts_world/models/mount_model.dart';
 
 import '../utils/app_colors.dart';
+import '../widgets/app_details_bottom_actions_widget.dart';
 import '../widgets/app_details_rating_bar_widget.dart';
+import '../widgets/app_details_title_description_widget.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({Key? key}) : super(key: key);
@@ -105,34 +107,8 @@ class _DetailsPageState extends State<DetailsPage> {
                     DetailsRatingBarWidget(),
                   ],
                 ),
-                Expanded(
-                  child: Container(
-                    color: Colors.amber,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                          child: Text('About ${selectedItem.name}',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                          child: Text('About ${selectedItem.description}',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                DetailsTitleDescriptionWidget(),
+                DetailsBottomActionsWidget(),
               ],
             ),
           ),
