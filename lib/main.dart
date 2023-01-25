@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mounts_world/pages/mounts_app_page.dart';
 
+import 'pages/details_page.dart';
 import 'pages/splash_screen_page.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: const SplashScreenPage(),
-      home: MountsAppPage(),
+      //home: MountsAppPage(),
+      home: DetailsPage(),
     );
   }
 }

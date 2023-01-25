@@ -3,22 +3,28 @@ class MountModel {
   String name;
   String location;
   String description;
-  MountModel(
-      {this.path = '',
-      this.name = '',
-      this.location = '',
-      this.description = ''});
+  int? id;
+  MountModel({
+    this.path = '',
+    this.name = '',
+    this.location = '',
+    this.description = '',
+    this.id,
+  });
 }
 
 final List<MountModel> mountItems = [
   MountModel(
-      path:
-          'https://sa.kapamilya.com/absnews/abscbnnews/media/2021/afp/01/17/20210116-mt-semeru-indonesia-ash-afp-s.jpg',
-      name: 'Mount Semeru',
-      description:
-          'Semeru, or Mount Semeru, is an active volcano in East Java, Indonesia. It is located in the subduction zone, where the Indo-Australia plate subducts under the Eurasia plate. It is the highest mountain on the island of Java.',
-      location: 'East Java'),
+    id: 0,
+    path:
+        'https://sa.kapamilya.com/absnews/abscbnnews/media/2021/afp/01/17/20210116-mt-semeru-indonesia-ash-afp-s.jpg',
+    name: 'Mount Semeru',
+    description:
+        'Semeru, or Mount Semeru, is an active volcano in East Java, Indonesia. It is located in the subduction zone, where the Indo-Australia plate subducts under the Eurasia plate. It is the highest mountain on the island of Java.',
+    location: 'East Java',
+  ),
   MountModel(
+      id: 1,
       path:
           'https://media-cdn.tripadvisor.com/media/photo-s/04/a5/6f/ce/dsc-5622jpg.jpg',
       name: 'Mount Merbaru',
@@ -26,6 +32,7 @@ final List<MountModel> mountItems = [
           'Mount Merbabu is a dormant stratovolcano in Central Java province on the Indonesian island of Java. The name Merbabu could be loosely translated as Mountain of Ash from the Javanese combined words; Meru means mountain and awu or abu means ash.',
       location: 'Central Java'),
   MountModel(
+      id: 2,
       path:
           'https://img.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/RXQ2YIO3CYYNKBOARHUJPVPILU.jpg&w=1800&high_res=true',
       name: 'Mauna Loa',
@@ -33,6 +40,7 @@ final List<MountModel> mountItems = [
           'Mauna Loa is one of five volcanoes that form the Island of Hawaii in the U.S. state of Hawai in the Pacific Ocean. The largest subaerial volcano in both mass and volume, Mauna Loa has historically been considered the largest volcano on Earth, dwarfed only by Tamu Massif.',
       location: 'Hawaii'),
   MountModel(
+      id: 3,
       path:
           'https://cdn.images.express.co.uk/img/dynamic/78/590x/mount-vesuvius-1100807.jpg',
       name: 'Mount Vesuvius',
@@ -40,6 +48,7 @@ final List<MountModel> mountItems = [
           'Mount Vesuvius is a somma-stratovolcano located on the Gulf of Naples in Campania, Italy, about 9 km east of Naples and a short distance from the shore. It is one of several volcanoes which form the Campanian volcanic arc.',
       location: 'Italy'),
   MountModel(
+      id: 4,
       path:
           'https://upload.wikimedia.org/wikipedia/commons/0/04/PopoAmeca2zoom.jpg',
       name: 'Mount Popocatépetl',
