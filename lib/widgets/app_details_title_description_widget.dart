@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import '../models/mount_model.dart';
 
 class DetailsTitleDescriptionWidget extends StatelessWidget {
-  var mountId = 0;
-
   @override
   Widget build(BuildContext context) {
-    var mountGotId = mountItems.first.id;
-    var selectedItem = mountItems[mountId];
+    var selectedItem = mountItems[0];
+    //MountModel currentMount = mountItems[index] ;
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

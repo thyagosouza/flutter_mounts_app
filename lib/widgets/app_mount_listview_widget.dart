@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/mount_model.dart';
+import '../pages/details_page.dart';
 
 class AppMountListViewWidget extends StatelessWidget {
   @override
@@ -13,37 +14,46 @@ class AppMountListViewWidget extends StatelessWidget {
           itemCount: mountItems.length,
           itemBuilder: ((context, index) {
             MountModel currentMount = mountItems[index];
-            return Container(
-              alignment: Alignment.bottomLeft,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.all(10),
-              width: 150,
-              decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: NetworkImage(currentMount.path),
-                  fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => DetailsPage(currentMount),
+                  ),
+                );
+              },
+              child: Container(
+                alignment: Alignment.bottomLeft,
+                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.all(10),
+                width: 150,
+                decoration: BoxDecoration(
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: NetworkImage(currentMount.path),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    currentMount.name,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      currentMount.name,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Text(
-                    currentMount.location,
-                    style: TextStyle(
-                      color: Colors.white,
+                    Text(
+                      currentMount.location,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           }),
